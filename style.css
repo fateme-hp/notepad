@@ -1,0 +1,79 @@
+/* css reset */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    color: inherit;
+     font-family: 'Montserrat', sans-serif;;
+}
+
+/* css style */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+body {
+    background-image: url('img/pexels-dominika-roseclay-1036808.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    height: 100%;
+}
+
+/* header style start */
+header {
+    background-color: #2d2d2d;
+    color: #fff;
+}
+header .container{
+    padding: 1.2% 4%;
+}
+
+/* main section style start */
+
+section .container{
+    padding:1% auto;
+    display: flex;
+    justify-content: space-between;
+}
+section .container .notepad {
+     background-color: rgba(197, 197, 197, 0.637);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 0 570px;
+    padding: .9% 3%;
+    margin: 5% 1%;
+    border-radius: 20px;
+}
+section .container form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+form * {
+    margin-top: 10px;
+    background: transparent;
+    outline: none;
+    border: none;
+}
+textarea{
+    background-image: url('img/lined-paper-texture-10.jpg');
+    background-repeat: repeat;
+    background-size: contain;
+    width: 500px;
+    height: 270px;
+    padding: 2% 4%;
+    line-height:25px ;
+    border-radius: 5px;
+}
+#submit{
+    display: inline-block;
+    background-color: #2d2d2d;
+    padding: 10px 15px ;
+    border-radius: 5px;
+    color: #fff;
+}
