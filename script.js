@@ -1,8 +1,8 @@
-// newNote = document.getElementById("newNote")
 
-let notes = [] , titles = [];
+
+let notes = [] , titles = [] , archive=[];
 let newTitle = document.getElementById("title"), clientNote = document.getElementById("clientNote"), clientNoteTitle = document.getElementById("clientNoteTitle")
-  newNote = document.getElementById("newNote");
+  newNote = document.getElementById("newNote") , client = document.getElementById("client");
  document.getElementById("form").addEventListener('submit', addNote);
 
 
@@ -10,8 +10,8 @@ let newTitle = document.getElementById("title"), clientNote = document.getElemen
  function Note (e){
  
    console.log(e.target.value);
-   localStorage.setItem('note' , e.target.value )
-   notes.push(localStorage.getItem('note'))
+   localStorage.setItem('note' , e.target.value );
+   notes.push(localStorage.getItem('note'));
   //  clientNote.innerHTML = notes
   
  }
@@ -20,8 +20,8 @@ let newTitle = document.getElementById("title"), clientNote = document.getElemen
 
  function title (event){
   console.log(event.target.value);
-  localStorage.setItem('title' , event.target.value )
-  titles.push(localStorage.getItem('title'))
+  localStorage.setItem('title' , event.target.value );
+  titles.push(localStorage.getItem('title'));
   // clientNoteTitle.innerHTML = titles
  }
  
@@ -32,14 +32,19 @@ function addNote(note) {
   console.log(note);
   
    for (let i = 0; i < titles.length; i++) {
-    clientNoteTitle.innerHTML = titles[i];
-    clientNote.innerHTML = notes[i];
+    // clientNoteTitle.innerHTML = titles[i];
+    // clientNote.innerHTML = notes[i];
     localStorage.setItem(titles[i] , notes[i] )
         
-    output =titles[i] + " : "+ notes[i]
-   }
+    
+    localStorage.getItem(titles[i] );
+    localStorage.getItem( notes[i] );
+    output = titles[i] + " : "+ notes[i]
+    archive.push(output);
+  
 
-   document.getElementById("client").writeIn = output
-   
+}
+console.log(archive);
+client.innerHTML = archive;
 }
 
