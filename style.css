@@ -37,6 +37,7 @@ section .container{
     padding:1% auto;
     display: flex;
     justify-content: space-between;
+    
 }
 section .container .notepad {
      background-color: rgba(197, 197, 197, 0.637);
@@ -53,12 +54,16 @@ section .container form{
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    
 }
 form * {
     margin-top: 10px;
     background: transparent;
     outline: none;
     border: none;
+}
+input[type="text"]{
+    font-size: 16px;
 }
 textarea{
     background-image: url('img/lined-paper-texture-10.jpg');
@@ -69,6 +74,7 @@ textarea{
     padding: 2% 4%;
     line-height:25px ;
     border-radius: 5px;
+    font-size: 17px;
 }
 #submit{
     display: inline-block;
@@ -76,4 +82,9 @@ textarea{
     padding: 10px 15px ;
     border-radius: 5px;
     color: #fff;
+    cursor: pointer;
+}
+#submit:hover{
+    background-color: #29921f;
+
 }
