@@ -45,7 +45,7 @@ section .container .notepad {
     flex-direction: column;
     align-items: flex-start;
     flex: 1 0 570px;
-    padding: .9% 3%;
+    padding:2% 3%;
     margin: 5% 1%;
     border-radius: 20px;
 }
@@ -87,4 +87,7 @@ textarea{
 #submit:hover{
     background-color: #29921f;
 
+}
+#client *{
+    margin-top: 10px;
 }

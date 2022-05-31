@@ -1,11 +1,24 @@
 
+// define variables
 
 let notes = [] , titles = [] , archive=[];
 let newTitle = document.getElementById("title"), clientNote = document.getElementById("clientNote"), clientNoteTitle = document.getElementById("clientNoteTitle")
   newNote = document.getElementById("newNote") , client = document.getElementById("client");
+
+  //  add event listener for form submit
  document.getElementById("form").addEventListener('submit', addNote);
 
+//  add event listener for title change
+ newTitle.addEventListener('change' , title);
 
+ function title (event){
+  console.log(event.target.value);
+  localStorage.setItem('title' , event.target.value );
+  titles.push(localStorage.getItem('title'));
+  // clientNoteTitle.innerHTML = titles
+ }
+
+// add event listener for note change
  newNote.addEventListener('change' , Note);
  function Note (e){
  
@@ -16,20 +29,15 @@ let newTitle = document.getElementById("title"), clientNote = document.getElemen
   
  }
 
- newTitle.addEventListener('change' , title);
-
- function title (event){
-  console.log(event.target.value);
-  localStorage.setItem('title' , event.target.value );
-  titles.push(localStorage.getItem('title'));
-  // clientNoteTitle.innerHTML = titles
- }
+ 
  
  
 
 function addNote(note) {
-  note.preventDefault();
-  console.log(note);
+  note.preventDefault(); //to prevent opening new page
+  // console.log(note);
+
+  // define a loop to get change and add to local storage
   
    for (let i = 0; i < titles.length; i++) {
     // clientNoteTitle.innerHTML = titles[i];
