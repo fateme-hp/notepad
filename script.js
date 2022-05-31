@@ -33,18 +33,25 @@ function addNote(note) {
   
    for (let i = 0; i < titles.length; i++) {
     // clientNoteTitle.innerHTML = titles[i];
+    titles[i] = document.querySelector('#title').value
     // clientNote.innerHTML = notes[i];
+    notes[i] = document.querySelector('#newNote').value
     localStorage.setItem(titles[i] , notes[i] )
         
     
     localStorage.getItem(titles[i] );
     localStorage.getItem( notes[i] );
     output = titles[i] + " : "+ notes[i]
-    archive.push(output);
+
   
 
 }
 console.log(archive);
-client.innerHTML = archive;
+archive.push(output);
+
+  client.innerHTML = archive;
+  
 }
+
+
 
