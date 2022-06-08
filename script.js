@@ -54,8 +54,4 @@ client.appendChild(clientNote);
     clientNoteTitle.append(titles);
     clientNote.append(notes);
     
-
-
-
-
 }
