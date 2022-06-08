@@ -47,7 +47,7 @@ section .container .notepad {
     flex: 1 0 570px;
     padding:2% 3%;
     margin: 5% 1%;
-    border-radius: 20px;
+ 
 }
 section .container form{
     display: flex;
@@ -88,6 +88,17 @@ textarea{
     background-color: #29921f;
 
 }
-#client *{
-    margin-top: 10px;
+#noteBox{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    border-radius: 20px;
+    justify-content: space-around;
 }
+.client{
+    margin: 10px;
+    background-color: #eee;
+    padding: 5px  8px;
+    border-radius: 5px;
+}
+

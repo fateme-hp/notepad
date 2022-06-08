@@ -1,9 +1,9 @@
 
 // define variables
 
-let notes = [] , titles = [] , archive=[];
-let newTitle = document.getElementById("title"), clientNote = document.getElementById("clientNote"), clientNoteTitle = document.getElementById("clientNoteTitle")
-  newNote = document.getElementById("newNote") , client = document.getElementById("client");
+let notes  , titles  ;
+let newTitle = document.getElementById("title"),
+  newNote = document.getElementById("newNote") ; 
 
   //  add event listener for form submit
  document.getElementById("form").addEventListener('submit', addNote);
@@ -14,7 +14,7 @@ let newTitle = document.getElementById("title"), clientNote = document.getElemen
  function title (event){
   console.log(event.target.value);
   localStorage.setItem('title' , event.target.value );
-  titles.push(localStorage.getItem('title'));
+  titles = localStorage.getItem('title');
   // clientNoteTitle.innerHTML = titles
  }
 
@@ -24,42 +24,38 @@ let newTitle = document.getElementById("title"), clientNote = document.getElemen
  
    console.log(e.target.value);
    localStorage.setItem('note' , e.target.value );
-   notes.push(localStorage.getItem('note'));
-  //  clientNote.innerHTML = notes
+   notes = localStorage.getItem('note');
+  
   
  }
 
- 
- 
- 
-
 function addNote(note) {
   note.preventDefault(); //to prevent opening new page
-  // console.log(note);
 
-  // define a loop to get change and add to local storage
-  
-   for (let i = 0; i < titles.length; i++) {
-    // clientNoteTitle.innerHTML = titles[i];
-    titles[i] = document.querySelector('#title').value
-    // clientNote.innerHTML = notes[i];
-    notes[i] = document.querySelector('#newNote').value
-    localStorage.setItem(titles[i] , notes[i] )
-        
+  //create a div for client 
+let client = document.createElement("div");
+client.classList.add("client");
+//append to div with notes id
+document.querySelector("#noteBox").appendChild(client);
+
+//create a span for clientNoteTitle 
+let clientNoteTitle = document.createElement("span");
+clientNoteTitle.classList.add("clientNoteTitle");
+//append to client
+client.appendChild(clientNoteTitle);
+
+//create a p for clientNote id 
+let clientNote = document.createElement("p");
+clientNote.classList.add("clientNote");
+//append to client
+client.appendChild(clientNote);
+
+    // append to created div
+    clientNoteTitle.append(titles);
+    clientNote.append(notes);
     
-    localStorage.getItem(titles[i] );
-    localStorage.getItem( notes[i] );
-    output = titles[i] + " : "+ notes[i]
 
-  
-
-}
-console.log(archive);
-archive.push(output);
-
-  client.innerHTML = archive;
-  
-}
 
 
 
+}
