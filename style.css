@@ -47,6 +47,7 @@ section .container .notepad {
     flex: 1 0 570px;
     padding:2% 3%;
     margin: 5% 1%;
+    overflow: hidden;
  
 }
 section .container form{
@@ -93,7 +94,7 @@ textarea{
     flex-wrap: wrap;
     margin-top: 15px;
     border-radius: 20px;
-    justify-content: space-around;
+    justify-content:baseline;
 }
 .client{
     margin: 10px;
