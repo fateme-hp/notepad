@@ -102,4 +102,14 @@ textarea{
     padding: 5px  8px;
     border-radius: 5px;
 }
-
+.removeBtn{
+    color: rgb(167, 11, 11);
+    font-weight: bold;
+    margin: 0;
+    margin-right: -15px;
+    z-index: 2;
+    cursor: pointer;
+}
+.removeBtn:active{
+    color: rgb(49, 49, 49);
+}
