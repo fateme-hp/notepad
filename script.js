@@ -1,5 +1,3 @@
-// define variables
-let notes =[], titles =[];
 
 //add event listener for loading
 window.addEventListener("load", loadNote);
@@ -46,25 +44,27 @@ function addNote(note) {
   note.preventDefault(); //to prevent opening new page
 
 
-  localStorage.setItem("title", JSON.stringify(titles)); // add title to local storage
+ 
+  let noteTitle = JSON.parse(localStorage.getItem("title") || '[]');
+  let noteContent = JSON.parse(localStorage.getItem("note")) || '[]';
   
-   JSON.parse(localStorage.getItem("title"));
-   titles.push(newTitle);
-   localStorage.setItem("title", JSON.stringify(titles)); // add title to local storage
+  //  JSON.parse(localStorage.getItem("title"));
+  noteTitle.push(newTitle);
+   localStorage.setItem("title", JSON.stringify(noteTitle)); // add title to local storage
 
-  localStorage.setItem("note", JSON.stringify(notes)); // add note to local storage
+
   
-  JSON.parse(localStorage.getItem("note"));
-  notes.push(newNote);
-  localStorage.setItem("note", JSON.stringify(notes)); // add title to local storage
+  // JSON.parse(localStorage.getItem("note"));
+  noteContent.push(newNote);
+  localStorage.setItem("note", JSON.stringify(noteContent)); // add title to local storage
 
-  let noteTitle = JSON.parse(localStorage.getItem("title"));
-  let noteContent = JSON.parse(localStorage.getItem("note"));
+   noteTitle = JSON.parse(localStorage.getItem("title"));
+   noteContent = JSON.parse(localStorage.getItem("note"));
 
   //create remove btn
   const removeBtn = document.createElement("span");
-  removeBtn.textContent = "X";
-  removeBtn.classList.add("remove-Btn");
+  removeBtn.textContent = "✖";
+  removeBtn.classList.add("removeBtn");
   document.querySelector("#noteBox").appendChild(removeBtn);
   
  //create a div for client
