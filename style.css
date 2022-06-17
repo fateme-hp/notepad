@@ -103,7 +103,7 @@ textarea{
     border-radius: 5px;
 }
 .removeBtn{
-    color: rgb(167, 11, 11);
+    color: rgb(49, 49, 49);
     font-weight: bold;
     margin: 0;
     margin-right: -15px;
@@ -111,5 +111,5 @@ textarea{
     cursor: pointer;
 }
 .removeBtn:active{
-    color: rgb(49, 49, 49);
+    color: rgb(167, 11, 11);
 }

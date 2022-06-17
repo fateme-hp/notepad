@@ -46,7 +46,7 @@ function addNote(note) {
 
  
   let noteTitle = JSON.parse(localStorage.getItem("title") || '[]');
-  let noteContent = JSON.parse(localStorage.getItem("note")) || '[]';
+  let noteContent = JSON.parse(localStorage.getItem("note")|| '[]') ;
   
   //  JSON.parse(localStorage.getItem("title"));
   noteTitle.push(newTitle);
@@ -105,16 +105,16 @@ for (let i = 0; i < remove.length; i++) {
   removeItem(i);
 }
 
-function removeItem(clickedBtn){
-  let noteTitle = JSON.parse(localStorage.getItem("title"));
-  let noteContent = JSON.parse(localStorage.getItem("note"));
+// function removeItem(clickedBtn){
+//   let noteTitle = JSON.parse(localStorage.getItem("title"));
+//   let noteContent = JSON.parse(localStorage.getItem("note"));
 
 
 
-  localStorage.setItem("title", JSON.stringify(titles)); // add title to local storage
+//   localStorage.setItem("title", JSON.stringify(titles)); // add title to local storage
 
-  localStorage.setItem("note", JSON.stringify(notes)); // add note to local storage
+//   localStorage.setItem("note", JSON.stringify(notes)); // add note to local storage
 
-}
+// }
 
 
