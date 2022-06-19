@@ -2,8 +2,8 @@
 //add event listener for loading
 window.addEventListener("load", loadNote);
 function loadNote(){
-  let noteTitle = JSON.parse(localStorage.getItem("title"));
-  let noteContent = JSON.parse(localStorage.getItem("note"));
+  let noteTitle = JSON.parse(localStorage.getItem("title") || '[]');
+  let noteContent = JSON.parse(localStorage.getItem("note")|| '[]') ;
   for (let i = 0; i < noteContent.length; i++) {
       //create remove btn
     const removeBtn = document.createElement("span");
@@ -48,13 +48,10 @@ function addNote(note) {
   let noteTitle = JSON.parse(localStorage.getItem("title") || '[]');
   let noteContent = JSON.parse(localStorage.getItem("note")|| '[]') ;
   
-  //  JSON.parse(localStorage.getItem("title"));
   noteTitle.push(newTitle);
    localStorage.setItem("title", JSON.stringify(noteTitle)); // add title to local storage
 
 
-  
-  // JSON.parse(localStorage.getItem("note"));
   noteContent.push(newNote);
   localStorage.setItem("note", JSON.stringify(noteContent)); // add title to local storage
 
@@ -100,21 +97,33 @@ function addNote(note) {
 let remove = document.querySelectorAll(".removeBtn");
 console.log(remove);
 
-for (let i = 0; i < remove.length; i++) {
-  remove[i].addEventListener("click", removeItem)
-  removeItem(i);
-}
+// for (let i = 0; i < remove.length; i++) {
+//   remove[i].addEventListener("click", removeItem)
+//   removeItem(i);
+// }
 
 // function removeItem(clickedBtn){
+ 
+
+
 //   let noteTitle = JSON.parse(localStorage.getItem("title"));
 //   let noteContent = JSON.parse(localStorage.getItem("note"));
 
-
-
-//   localStorage.setItem("title", JSON.stringify(titles)); // add title to local storage
-
-//   localStorage.setItem("note", JSON.stringify(notes)); // add note to local storage
-
 // }
+remove.forEach((element, index) => {
 
+  element.addEventListener("click", removeItem(index));
+  function removeItem(index){
+ 
+
+    let noteTitle = JSON.parse(localStorage.getItem("title"));
+    let noteContent = JSON.parse(localStorage.getItem("note")) ;
+    localStorage.removeItem(noteTitle[index]);
+    localStorage.removeItem(noteContent[index]);
+    localStorage.setItem("title", JSON.stringify(noteTitle)); // add title to local storage
+    localStorage.setItem("note", JSON.stringify(noteContent)); // add title to local storage
+    document.querySelector("#noteBox").removeChild(client);
+  }
+
+});
 
