@@ -20,7 +20,7 @@ function loadNote() {
     //append to client
     client.appendChild(clientNoteTitle);
     //create a p for clientNote id
-    let clientNote = document.createElement("p");
+    let clientNote = document.createElement("pre");
     clientNote.classList.add("clientNote");
     //append to client
     client.appendChild(clientNote);
@@ -71,7 +71,7 @@ function addNote(note) {
     //append to client
     client.appendChild(clientNoteTitle);
     //create a p for clientNote id
-    let clientNote = document.createElement("p");
+    let clientNote = document.createElement("pre");
     clientNote.classList.add("clientNote");
     //append to client
     client.appendChild(clientNote);

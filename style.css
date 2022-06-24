@@ -48,7 +48,10 @@ section .container .notepad {
     padding:2% 3%;
     margin: 5% 1%;
     overflow: hidden;
- 
+    height: max-content;
+}
+#notes{
+    min-height: 480px;
 }
 section .container form{
     display: flex;
@@ -91,25 +94,41 @@ textarea{
 }
 #noteBox{
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     margin-top: 15px;
     border-radius: 20px;
     justify-content:baseline;
 }
 .client{
+  height: max-content;
     margin: 10px;
     background-color: #eee;
-    padding: 5px  8px;
-    border-radius: 5px;
+    padding: 12px  15px;
+    border-radius:2px 15px 15px;
 }
 .removeBtn{
     color: rgb(49, 49, 49);
     font-weight: bold;
     margin: 0;
-    margin-right: -15px;
+    margin-bottom: -25px;
     z-index: 2;
     cursor: pointer;
 }
 .removeBtn:active{
     color: rgb(167, 11, 11);
+}
+.clientNoteTitle{
+    font-size: 15px;
+  width: 100%;
+    margin-bottom: 10px;
+    color:#0d9900;
+}
+.clientNoteTitle::before{
+  content:"Title :  "
+}
+.clientNote{
+    font-size: 18px;
+  width: 100%;
+    margin-top: 10px;  
 }
