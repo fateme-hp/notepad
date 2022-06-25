@@ -133,6 +133,7 @@ textarea {
   margin-top: 10px;
 }
 
+/* mobile responsive */
 @media only screen and (max-width: 640px) {
   body {
     background-attachment: scroll;

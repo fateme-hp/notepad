@@ -33,7 +33,8 @@ function loadNote() {
 
 // step 01:  add event listener for form submit
 document.getElementById("form").addEventListener("submit", addNote);
-
+// step 02: create a function to get the local storage input
+// and add new values
 function addNote(note) {
   let newTitle = document.getElementById("title").value,
     newNote = document.getElementById("newNote").value;
@@ -84,51 +85,52 @@ function addNote(note) {
   this.reset();
 }
 
+// remove note by clicking on removeBtn
 let remove = document.querySelector("#noteBox");
-console.log(remove);
 
+// add event listener to remove notes
 remove.addEventListener("click", removeItem);
-
-function removeItem(clickedBtn){
+// create a function to remove notes
+function removeItem(clickedBtn) {
   console.log(clickedBtn);
-
-  if (clickedBtn.srcElement.className == "removeBtn"){
-console.log(clickedBtn.srcElement);
-console.log(clickedBtn.srcElement.nextElementSibling);
-
-let noteTitle = JSON.parse(localStorage.getItem("title"));
+  // check whether the clicked btn has a class of removeBtn or no
+  // if clicked btn had the class of removeBtn
+  // delete the required data (note and its title)
+  if (clickedBtn.srcElement.className == "removeBtn") {
+    console.log(clickedBtn.srcElement);
+    console.log(clickedBtn.srcElement.nextElementSibling);
+    // get values from local storage
+    let noteTitle = JSON.parse(localStorage.getItem("title"));
     let noteContent = JSON.parse(localStorage.getItem("note"));
-
+    //check the index of clicked note to remove values from local storage
     for (let i = 0; i < noteTitle.length; i++) {
-      const elementValue = clickedBtn.srcElement.nextElementSibling.children[0].innerText;
+      const elementValue =
+        clickedBtn.srcElement.nextElementSibling.children[0].innerText; // find the value of clicked element
       console.log(elementValue);
       console.log(noteTitle[i]);
-      if (elementValue == noteTitle[i]){
+      // check which array index match the clicked element value 
+      // then splice the index and add new array to localstorage
+      if (elementValue == noteTitle[i]) { 
         noteTitle.splice(i, 1);
-            noteContent.splice(i, 1);
-            localStorage.setItem("title", JSON.stringify(noteTitle)); // add title to local storage
-            localStorage.setItem("note", JSON.stringify(noteContent)); // add title to local storage
+        noteContent.splice(i, 1);
+        localStorage.setItem("title", JSON.stringify(noteTitle)); // add title to local storage
+        localStorage.setItem("note", JSON.stringify(noteContent)); // add title to local storage
       }
-      
     }
-    
-    
-
-    document.querySelector("#noteBox").removeChild(clickedBtn.srcElement.nextElementSibling);
-document.querySelector("#noteBox").removeChild(clickedBtn.srcElement);
-
+    // remove related html elements
+    document
+      .querySelector("#noteBox")
+      .removeChild(clickedBtn.srcElement.nextElementSibling);
+    document.querySelector("#noteBox").removeChild(clickedBtn.srcElement);
   }
-
-
-
-
 }
 
+
+// when add note button is clicked ,change the display of notepad form 
 let noteBtn = document.getElementById("addNoteBtn");
 
-noteBtn.addEventListener("click",showNotepad);
+noteBtn.addEventListener("click", showNotepad);
 
-function showNotepad(){
-  
-  document.getElementById("notepad").style.display="flex";
+function showNotepad() {
+  document.getElementById("notepad").style.display = "flex";
 }
