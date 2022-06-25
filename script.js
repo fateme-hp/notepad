@@ -124,30 +124,11 @@ document.querySelector("#noteBox").removeChild(clickedBtn.srcElement);
 
 }
 
-// for (let i = 0; i < remove.length; i++) {
-//   remove[i].addEventListener("click", removeItem)
-//   removeItem(i);
-// }
+let noteBtn = document.getElementById("addNoteBtn");
 
-// function removeItem(clickedBtn){
+noteBtn.addEventListener("click",showNotepad);
 
-//   let noteTitle = JSON.parse(localStorage.getItem("title"));
-//   let noteContent = JSON.parse(localStorage.getItem("note"));
-
-// }
-// remove.forEach((element, index) => {
-
-//   element.onclick = (event) => {
-//     console.log("You clicked button number " + index);
-//    }
-//   // element.addEventListener("click", removeItem(index));
-//   // function removeItem(index) {
-//   //   let noteTitle = JSON.parse(localStorage.getItem("title"));
-//   //   let noteContent = JSON.parse(localStorage.getItem("note"));
-//   //   noteTitle.splice(index, 1);
-//   //   noteContent.splice(index, 1);
-//   //   localStorage.setItem("title", JSON.stringify(noteTitle)); // add title to local storage
-//   //   localStorage.setItem("note", JSON.stringify(noteContent)); // add title to local storage
-//   //   document.querySelector("#noteBox").removeChild(client);
-//   // }
-// });
+function showNotepad(){
+  
+  document.getElementById("notepad").style.display="flex";
+}
