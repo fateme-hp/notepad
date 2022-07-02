@@ -101,6 +101,7 @@ textarea {
   justify-content: baseline;
 }
 .client {
+  width: max-content;
   height: max-content;
   margin: 10px;
   background-color: #eee;
@@ -114,6 +115,7 @@ textarea {
   margin-bottom: -25px;
   z-index: 2;
   cursor: pointer;
+  display: none;
 }
 .removeBtn:active {
   color: rgb(167, 11, 11);

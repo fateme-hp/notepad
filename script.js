@@ -1,11 +1,9 @@
-
-  let noteTitle = JSON.parse(localStorage.getItem("title") || "[]");
-  let noteContent = JSON.parse(localStorage.getItem("note") || "[]");
+let noteTitle = JSON.parse(localStorage.getItem("title") || "[]");
+let noteContent = JSON.parse(localStorage.getItem("note") || "[]");
 
 //add event listener for loading
 window.addEventListener("load", loadNote);
 function loadNote() {
-
   for (let i = 0; i < noteContent.length; i++) {
     //create remove btn
     const removeBtn = document.createElement("span");
@@ -54,6 +52,8 @@ function addNote(note) {
   loadNote(note);
 
   this.reset();
+
+  location.reload();
 }
 
 // remove note by clicking on removeBtn
@@ -79,9 +79,9 @@ function removeItem(clickedBtn) {
         clickedBtn.srcElement.nextElementSibling.children[0].innerText; // find the value of clicked element
       console.log(elementValue);
       console.log(noteTitle[i]);
-      // check which array index match the clicked element value 
+      // check which array index match the clicked element value
       // then splice the index and add new array to localstorage
-      if (elementValue == noteTitle[i]) { 
+      if (elementValue == noteTitle[i]) {
         noteTitle.splice(i, 1);
         noteContent.splice(i, 1);
         localStorage.setItem("title", JSON.stringify(noteTitle)); // add title to local storage
@@ -96,8 +96,7 @@ function removeItem(clickedBtn) {
   }
 }
 
-
-// when add note button is clicked ,change the display of notepad form 
+// when add note button is clicked ,change the display of notepad form
 let noteBtn = document.getElementById("addNoteBtn");
 
 noteBtn.addEventListener("click", showNotepad);
@@ -105,3 +104,74 @@ noteBtn.addEventListener("click", showNotepad);
 function showNotepad() {
   document.getElementById("notepad").style.display = "flex";
 }
+
+// by clicking numpadEnter submit note
+
+document.addEventListener("keydown", submitKey);
+
+function submitKey(e) {
+  if (e.code == "NumpadEnter") {
+    
+    let newTitle = document.getElementById("title").value,
+    newNote = document.getElementById("newNote").value;
+
+
+  noteTitle.push(newTitle);
+  localStorage.setItem("title", JSON.stringify(noteTitle)); // add title to local storage
+
+  noteContent.push(newNote);
+  localStorage.setItem("note", JSON.stringify(noteContent)); // add title to local storage
+
+   // add notes to page
+  loadNote();
+
+  document.getElementById("form").reset();
+
+  location.reload();
+
+  }
+}
+
+// delete by delete key 
+let selectedItem;
+// display remove btn on click
+remove.addEventListener("click", showRemoveBtn);
+
+function showRemoveBtn(e){
+selectedItem = e.target.parentElement.previousElementSibling;
+selectedItem.style.display="flex";
+
+
+
+}
+
+document.addEventListener("keydown", deleteKey);
+function deleteKey(element){
+  
+  if (element.code == "Delete"){
+  
+  console.log(selectedItem.classList);
+
+    //check the index of clicked note to remove values from local storage
+    for (let i = 0; i < noteTitle.length; i++) {
+      const elementValue =
+        selectedItem.nextElementSibling.children[0].innerText; // find the value of clicked element
+      console.log(elementValue);
+      console.log(noteTitle[i]);
+      // check which array index match the clicked element value
+      // then splice the index and add new array to localstorage
+      if (elementValue == noteTitle[i]) {
+        noteTitle.splice(i, 1);
+        noteContent.splice(i, 1);
+        localStorage.setItem("title", JSON.stringify(noteTitle)); // add title to local storage
+        localStorage.setItem("note", JSON.stringify(noteContent)); // add title to local storage
+      }
+    }
+    // remove related html elements
+    document
+      .querySelector("#noteBox")
+      .removeChild(selectedItem.nextElementSibling);
+    document.querySelector("#noteBox").removeChild(selectedItem);
+  }
+ 
+  }
